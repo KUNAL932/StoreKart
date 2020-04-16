@@ -85,13 +85,7 @@ class _State extends State<MyApp> {
                     ),
                   ),
                 ),
-//                FlatButton(
-//                  onPressed: (){
-//                    //forgot password screen
-//                  },
-//                  textColor: Colors.blue,
-//                  child: Text('Forgot Password'),
-//                ),
+//
                 Container(
                     height: 90,
                     padding: EdgeInsets.fromLTRB(10, 40, 10, 0),
@@ -102,6 +96,14 @@ class _State extends State<MyApp> {
                       onPressed: () {
                         print(nameController.text);
                         print(passwordController.text);
+//                  navigation function starts
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => list()),
+                        );
+
+
+//                  navigation function starts
                       },
                     )),
 
@@ -110,5 +112,43 @@ class _State extends State<MyApp> {
   }
 }
 
+class list extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(5),
+        child: ListView(
+          children: <Widget>[
+            Container(
+              child: Text("Tea"
+              ),
+            ),
+            Container(
+              child: Text("Wheat"),
+            ),
+            Container(),
+            Container(),
+            Container(),
+          ],
+        ),
+      ),
+
+    );
+  }
+}
+
+
+//onPressed: () {
+
+//);
+//}
+//
+//
+//onPressed: () {
+//Navigator.pop(context);
+//}
 
 
