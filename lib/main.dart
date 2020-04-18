@@ -99,7 +99,7 @@ class _State extends State<MyApp> {
 //                  navigation function starts
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => list()),
+                          MaterialPageRoute(builder: (context) => GrossoryList()),
 
                         );
 
@@ -116,7 +116,13 @@ class _State extends State<MyApp> {
   }
 }
 
-class list extends StatelessWidget {
+class GrossoryList extends StatefulWidget {
+  @override
+  _GrossoryListState createState() => _GrossoryListState();
+}
+
+class _GrossoryListState extends State<GrossoryList> {
+  int wheatQuantityInKg = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -126,11 +132,11 @@ class list extends StatelessWidget {
         title: Text("StoreKart"),
       ),
       body: Padding(
-        padding: EdgeInsets.fromLTRB(30,20,20,20),
+        padding: EdgeInsets.fromLTRB(30,20,20,0),
         child: ListView(
           children: <Widget>[
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 Container(
                   child: Text("ITEMS",
@@ -140,6 +146,14 @@ class list extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+                ),
+                Container(
+                  child: Text("Add",
+                  style: TextStyle(
+                    color: Colors.yellow,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),),
                 ),
                 Container(
                   child: Text("Quantity",
@@ -154,14 +168,46 @@ class list extends StatelessWidget {
             ),
             SizedBox(height: 10,
             ),
-            Container(
-
-              child: Text("Wheat",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Container(
+//                  padding: EdgeInsets.fromLTRB(70,10,5,0),
+                  child: Text("Wheat",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                    ),
+                  ),
                 ),
-              ),
+
+                Container(
+//                  padding: EdgeInsets.fromLTRB(0,10,5,0),
+                  child: FlatButton.icon(
+                      onPressed: () {
+                        setState(() {
+                          wheatQuantityInKg += 1;
+                        });
+                      },
+                      icon: Icon(Icons.add),
+                      label: Text("1"),
+                    color: Colors.white,
+                      ),
+                ),
+
+
+                Container(
+//                  padding: EdgeInsets.fromLTRB(0,10,5,60),
+                  child: Text(
+                    '$wheatQuantityInKg',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20
+                    ),
+                  ),
+                ),
+              ],
             ),
             Container(),
             Container(),
@@ -173,6 +219,18 @@ class list extends StatelessWidget {
     );
   }
 }
+
+//class Store extends StatelessWidget {
+//  @override
+//  Widget build(BuildContext context) {
+//    return Scaffold(
+//      appBar: AppBar(
+//        backgroundColor: Colors.grey[900],
+//        title: Text("Stores Near Me"),
+//      ),
+//    );
+//  }
+//}
 
 
 
