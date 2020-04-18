@@ -100,12 +100,16 @@ class _State extends State<MyApp> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => list()),
+
                         );
+
 
 
 //                  navigation function starts
                       },
-                    )),
+                    )
+
+                )
 
               ],
             )));
@@ -116,18 +120,48 @@ class list extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[800],
       appBar: AppBar(
+        backgroundColor: Colors.grey[700],
+        title: Text("StoreKart"),
       ),
       body: Padding(
-        padding: EdgeInsets.all(5),
+        padding: EdgeInsets.fromLTRB(30,20,20,20),
         child: ListView(
           children: <Widget>[
-            Container(
-              child: Text("Tea"
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Container(
+                  child: Text("ITEMS",
+                    style: TextStyle(
+                      color: Colors.yellow,
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Container(
+                  child: Text("Quantity",
+                    style: TextStyle(
+                      color: Colors.yellow,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 22,
+                    ),),
+                )
+              ],
+
+            ),
+            SizedBox(height: 10,
             ),
             Container(
-              child: Text("Wheat"),
+
+              child: Text("Wheat",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
+              ),
             ),
             Container(),
             Container(),
@@ -141,12 +175,7 @@ class list extends StatelessWidget {
 }
 
 
-//onPressed: () {
 
-//);
-//}
-//
-//
 //onPressed: () {
 //Navigator.pop(context);
 //}
